@@ -1,0 +1,9 @@
+<h2>todo</h2>
+
+<!-- <h3><p="/tdo/<%= @article.id %>"><%= @article.title %></p></h3> -->
+
+<form action="/tdo/<%= @article.id %>" method="post" accept-charset="utf-8">
+  <input type="hidden" name="_method" value="PUT">
+	<input type="text" name="article[title]" value="<%= @article.title %>" id="article[title]" >
+	<p><input type="submit" value="edit list" /></p>
+</form>

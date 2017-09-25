@@ -1,0 +1,7 @@
+<h2>todo</h2>
+<% @tdo.each do |article| %>
+	<p><a href="/tdo/<%= article.id %>"><%= article.title %></a></p>
+	
+<% end %>
+
+<a href="/tdo/new">Add a new todo</a>
