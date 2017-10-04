@@ -67,6 +67,7 @@ PLATFORMS
 
 DEPENDENCIES
   data_mapper
+  json (~> 1.6)
   sinatra
 
 BUNDLED WITH

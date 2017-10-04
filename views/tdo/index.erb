@@ -1,7 +1,16 @@
-<h2>todo</h2>
-<% @tdo.each do |article| %>
-	<p><a href="/tdo/<%= article.id %>"><%= article.title %></a></p>
-	
-<% end %>
+<form name="myForm" action="/tdo" method="post" onsubmit="validateForm()" accept-charset="utf-8">
+	<p><input type="text" name="article[title]" value="" id="article[title]" /> <input type="submit" value="Add list" /></p>
+</form>
 
-<a href="/tdo/new">Add a new todo</a>
+<% @tdo.each do |article| %>
+	<p><form action="/tdo/<%= article.id %>" method="post">
+		<a onsubmit="myFunction()" href="/tdo/<%= article.id %>"><%= article.title %></a>
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="Delete">
+				<a class="wrap_1" href="/tdo/<%= article.id %>/edit">Edit</a>
+  </form>
+  <!-- <button type "hidden" onclick="window.location='/tdo/<%= article.id %>/edit'">Edit</button> -->
+
+</p>
+<% end %>
+<!-- <button onclick="window.location='/tdo/new'">Add a new todo</button> -->

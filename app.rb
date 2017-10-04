@@ -13,14 +13,14 @@ class Article
 end
 DataMapper.finalize.auto_upgrade!
 
-get '/' do
-  erb :index
-end
+# get '/' do
+#   erb :index
+# end
 
-get '/tdo' do
+get '/' do
   @tdo = Article.all
   erb :'tdo/index'
-  
+
 end
 
 get '/tdo/new' do
@@ -40,7 +40,7 @@ end
 post '/tdo' do
   article = Article.new(params[:article])
   if article.save
-    redirect '/tdo'
+    redirect '/'
   else
     redirect '/tdo/new'
   end
@@ -53,7 +53,8 @@ put '/tdo/:id' do |id|
 
   if success
     # puts "SUCESSS #{article.id}"
-    redirect "/tdo/#{id}"
+    # redirect "/tdo/#{id}"
+      redirect '/'
   else
     # puts "FAILED"
     redirect "/tdo/#{id}/edit"
@@ -63,5 +64,5 @@ end
 delete '/tdo/:id' do |id|
   article = Article.get!(id)
   article.destroy!
-  redirect "/tdo"
+  redirect "/"
 end
