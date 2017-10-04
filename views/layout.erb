@@ -6,8 +6,8 @@
 <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
-
 .wrap{
   font-size: 16px;
   font-family:fantasy;
@@ -34,10 +34,26 @@
 function validateForm() {
     var x = document.forms["myForm"]["article[title]"].value;
     if (x == "") {
-        alert("Name must be filled out");
+        alert("Enter the Todo");
         return false;
     }
 }
+
+// function myFunction() {
+//     document.getElementById("myP").style.visibility = "visibility";
+// }
+// function generateRow() {
+// var d=document.getElementById("div");
+// d.innerHTML+="<input type='text' name='article[title]' id='article[title]'>";
+// }
+// $(document).ready(function(){
+//     $("#hide").click(function(){
+//         $("p").hide();
+//     });
+//     $("#show").click(function(){
+//         $("p").show();
+//     });
+// });
 </script>
 </head>
 <body>

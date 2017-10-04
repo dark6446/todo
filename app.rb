@@ -18,7 +18,7 @@ DataMapper.finalize.auto_upgrade!
 # end
 
 get '/' do
-  @tdo = Article.all
+  @article = Article.all
   erb :'tdo/index'
 
 end
