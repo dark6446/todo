@@ -8,26 +8,37 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
+body{
+    background-color: cornsilk;
+}
 .wrap{
   font-size: 16px;
   font-family:fantasy;
   letter-spacing: 1.0;
+  padding: 40px 20px;
 }
 .wrap a{
   color: black;
 }
-.wrap_1{
-  align-items: flex-start;
-      text-align: center;
-      cursor: default;
-      color: buttontext;
-      background-color: buttonface;
-      box-sizing: border-box;
-      padding: 2px 6px 3px;
-      border-width: 2px;
-      border-style: outset;
-      border-color: buttonface;
-      border-image: initial;
+.wrap  a:hover{
+  text-decoration: none;
+  color: saddlebrown;
+}
+input:hover {
+    background-color: blanchedalmond;
+}
+.list{
+padding: 10px 5px;
+}
+.card-block{
+  width: 50rem;
+  margin: auto;
+  background-color: #FFC107;
+  text-align: center;
+  border: 1px solid #E65100;
+}
+.form{
+  padding-top: 20px;
 }
 </style>
 <script>
@@ -38,15 +49,21 @@ function validateForm() {
         return false;
     }
 }
+function validatemessage() {
+  var message = "List is deleted sucessfully";
+  alert (message);
+}
 </script>
 </head>
 <body>
-  <h1 style="text-align:center;">TODO LIST</h1>
+
+  <h1 style="text-align:center;color: darkgray;
+    font-family: monospace;"><MARQUEE >TODO LIST</MARQUEE></h1>
   <div class="wrap">
      <div class="container">
       <%= yield %>
       </div>
   </div>
 </body>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-</html
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>

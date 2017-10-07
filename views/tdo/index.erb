@@ -1,27 +1,30 @@
-<form name="myForm" action="/tdo" method="post" onsubmit="validateForm()" accept-charset="utf-8">
-	<p><input type="text" name="article[title]" value="" placeholder="Enter Todo List" id="article[title]" /> <input type="submit" value="Add list" /></p>
-</form>
 
-   <% @article.each do |article| %>
-	<p><form action="/tdo/<%= article.id %>" method="post">
-		<a href="/tdo/<%= article.id %>"><%= article.title %></a>
-		    <!-- <input type="text" id="dvPassport" style="display: none" /> -->
-        <input type="hidden" name="_method" value="delete" />
-        <input type="submit" value="Delete">
-				<a class="wrap_1" id="chkButton" onclick="ShowHideDiv(<%=article.id%>)" >Edit</a>
-  </form>
+  <div class="card-block">
+		<form name="myForm"  class="form" action="/tdo" method="post" onsubmit="validateForm()" accept-charset="utf-8">
+			<p><input type="text" name="article[title]" value="" placeholder="Enter Todo List" id="article[title]" />
+				 <input type="submit" value="Add list" /></p>
+		</form>
 
-  <!-- <button type "hidden" onclick="window.location='/tdo/<%= article.id %>/edit'">Edit</button> -->
-	<form action="/tdo/<%= article.id %>" id="dvWrap<%=article.id%>" style="display: none" method="post" accept-charset="utf-8" >
-	  <input type="hidden" name="_method" value="PUT">
-		<input type="text" name="article[title]" value="<%= article.title %>" id="article[title]" >
-		<input type="submit" value="edit list" />
-	</form>
-</p>
+		<div class="list">
+		  <% @article.each do |article| %>
+			 <p><form action="/tdo/<%= article.id %>" method="post" onsubmit="validatemessage()">
+				    <a><%= article.title %></a>
+						<!-- href="/tdo/<%= article.id %>" -->
+		        <input type="hidden" name="_method" value="delete" />
+		        <input type="submit" value="Delete">
+		       <input type="button" onclick="ShowHideDiv(<%=article.id%>)" value="Edit">
+		      </form>
 
-<!-- <input type="button" id="chkPassport" method="post" onclick="ShowHideDiv(this)" /> -->
-<% end %>
-<!-- <button onclick="window.location='/tdo/new'">Add a new todo</button> -->
+			    <form action="/tdo/<%= article.id %>" id="dvWrap<%=article.id%>" style="display: none" method="post" accept-charset="utf-8" >
+			      <input type="hidden" name="_method" value="PUT">
+				    <input type="text" name="article[title]" value="<%= article.title %>" id="article[title]" >
+				    <input type="submit" value="edit list" />
+			    </form>
+		    </p>
+		  <% end %>
+		</div>
+  </div>
+
 <script type="text/javascript">
 function ShowHideDiv(chkButton) {
 		var dvWrap = document.getElementById("dvWrap"+chkButton);
