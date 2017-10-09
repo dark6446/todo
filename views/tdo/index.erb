@@ -1,29 +1,37 @@
 
   <div class="card-block">
+		<h1>Enter the TODO</h1>
 		<form name="myForm"  class="form" action="/tdo" method="post" onsubmit="validateForm()" accept-charset="utf-8">
 			<p><input type="text" name="article[title]" value="" placeholder="Enter Todo List" id="article[title]" />
 				 <input type="submit" value="Add list" /></p>
 		</form>
+	</div>
+ <div class="list">
+  <div class="container">
+  	<div class="row">
+			  <% @article.each do |article| %>
+				<div class="col-sm-4">
+				   <p><form action="/tdo/<%= article.id %>" method="post" onsubmit="validatemessage()">
+					     <h3><%= article.title %></h3>
+							 <!-- href="/tdo/<%= article.id %>" -->
+			         <input type="hidden" name="_method" value="delete" />
+			         <input type="submit" value="Delete" style="background-color:red; border-color: brown;">
+			         <input type="button" onclick="ShowHideDiv(<%=article.id%>)" value="Edit" style="background-color:yellow; border-color: gold;">
+			        </form>
 
-		<div class="list">
-		  <% @article.each do |article| %>
-			 <p><form action="/tdo/<%= article.id %>" method="post" onsubmit="validatemessage()">
-				    <a><%= article.title %></a>
-						<!-- href="/tdo/<%= article.id %>" -->
-		        <input type="hidden" name="_method" value="delete" />
-		        <input type="submit" value="Delete">
-		       <input type="button" onclick="ShowHideDiv(<%=article.id%>)" value="Edit">
-		      </form>
+				    <form action="/tdo/<%= article.id %>" id="dvWrap<%=article.id%>" style="display: none" method="post" accept-charset="utf-8" >
+				      <input type="hidden" name="_method" value="PUT">
+					    <input type="text" name="article[title]" value="<%= article.title %>" id="article[title]" >
+					    <input type="submit" value="edit list" />
+				    </form>
+			    </p>
+				</div>
+			  <% end %>
+    </div>
+	</div>
+</div>
 
-			    <form action="/tdo/<%= article.id %>" id="dvWrap<%=article.id%>" style="display: none" method="post" accept-charset="utf-8" >
-			      <input type="hidden" name="_method" value="PUT">
-				    <input type="text" name="article[title]" value="<%= article.title %>" id="article[title]" >
-				    <input type="submit" value="edit list" />
-			    </form>
-		    </p>
-		  <% end %>
-		</div>
-  </div>
+
 
 <script type="text/javascript">
 function ShowHideDiv(chkButton) {
