@@ -24,19 +24,19 @@ get '/' do
 
 end
 
-get '/tdo/new' do
-  erb :'tdo/new'
-end
+# get '/tdo/new' do
+#   erb :'tdo/new'
+# end
+#
+# get '/tdo/:id' do |id|
+#   @article = Article.get!(id)
+#   erb :'tdo/show'
+# end
 
-get '/tdo/:id' do |id|
-  @article = Article.get!(id)
-  erb :'tdo/show'
-end
-
-get '/tdo/:id/edit' do |id|
-  @article = Article.get!(id)
-  erb :'tdo/edit'
-end
+# get '/tdo/:id/edit' do |id|
+#   @article = Article.get!(id)
+#   erb :'tdo/edit'
+# end
 
 post '/tdo' do
   article = Article.new(params[:article])

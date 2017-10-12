@@ -6,13 +6,14 @@
 				 <input type="submit" value="Add list" /></p>
 		</form>
 	</div>
+
  <div class="list">
   <div class="container">
   	<div class="row">
 			  <% @article.each do |article| %>
 				<div class="col-sm-4">
 				   <p><form action="/tdo/<%= article.id %>" method="post" onsubmit="validatemessage()">
-					     <h3><%= article.title %></h3>
+					     <h3>(<%= article.id %>) <%= article.title %></h3>
 							 <!-- href="/tdo/<%= article.id %>" -->
 			         <input type="hidden" name="_method" value="delete" />
 			         <input type="submit" value="Delete" style="background-color:red; border-color: brown;">
